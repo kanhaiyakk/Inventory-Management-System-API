@@ -1,8 +1,7 @@
-package com.cts.inventorymanagementsystem;
+package com.cts.inventorymanagementsystem.itemServiceTest;
 
 import com.cts.inventorymanagementsystem.entity.Item;
 import com.cts.inventorymanagementsystem.repository.ItemRepository;
-import com.cts.inventorymanagementsystem.service.ItemService;
 import com.cts.inventorymanagementsystem.serviceImpl.ItemServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,31 +26,43 @@ public class ItemServiceTest {
     private ItemServiceImpl itemService;
 
     private Item item;
-    private Integer quantity;
-    private BigDecimal price;
-    private String description;
-    private String name;
-    private Long id;
 
-    @BeforeEach
-    public void setup(){
-        // Initialize the Item object
-        item = new Item();              // Assuming Item has a default constructor
 
-        // Initialize ID, name, description, quantity, and price
-        id = 1L;                       // Example ID
-        name = "Dove";          // Example name
-        description = "A sample item for testing purposes."; // Example description
-        quantity = 5;                  // Example quantity
-        price = BigDecimal.valueOf(10.00); // Example price
+//    private Integer quantity;
+//    private BigDecimal price;
+//    private String description;
+//    private String name;
+//    private Long id;
+//
+//    @BeforeEach
+//    public void setup(){
+//        // Initialize the Item object
+//        item = new Item();              // Assuming Item has a default constructor
+//
+//        // Initialize ID, name, description, quantity, and price
+//        id = 1L;                       // Example ID
+//        name = "Dove";          // Example name
+//        description = "A sample item for testing purposes."; // Example description
+//        quantity = 5;                  // Example quantity
+//        price = BigDecimal.valueOf(10.00); // Example price
+//
+//        item.setId(id);
+//        item.setName(name);
+//        item.setQuantity(quantity);
+//        item.setPrice(price);
+//        item.setDescription(description);
+//   }
+@BeforeEach
+public void setup() {
+    item = Item.builder()
+            .id(1L)
+            .name("Dove")
+            .description("A sample item for testing purposes.")
+            .quantity(5)
+            .price(BigDecimal.valueOf(10.00))
+            .build();
+}
 
-        item.setId(id);
-        item.setName(name);
-        item.setQuantity(quantity);
-        item.setPrice(price);
-        item.setDescription(description);
-
-    }
 
     @Test
     public void testCreateUser(){
